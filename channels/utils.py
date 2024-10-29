@@ -54,6 +54,7 @@ async def await_many_dispatch(consumer_callables, dispatch):
         for task in tasks:
             task.cancel()
             try:
+                print(task)
                 await task
             except:
                 pass
