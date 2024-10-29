@@ -55,5 +55,5 @@ async def await_many_dispatch(consumer_callables, dispatch):
             task.cancel()
             try:
                 await task
-            except asyncio.CancelledError:
+            except:
                 pass
