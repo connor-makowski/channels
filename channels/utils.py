@@ -54,8 +54,9 @@ async def await_many_dispatch(consumer_callables, dispatch):
         for task in tasks:
             task.cancel()
             try:
-                print('AWAITING TASK')
-                print(task)
-                await task
+                if not task.done():
+                    print("Waiting for task to cancel")
+                    print(task.__dict__)
+                    await task
             except:
                 pass
